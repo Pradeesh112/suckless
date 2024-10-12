@@ -64,12 +64,22 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *volumeUp[]      = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+",    NULL };
 static const char *volumeDown[]    = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-",    NULL };
 static const char *mutevol[]       = { "wpctl", "set-mute",   "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
+static const char *medplaypausecmd[] = { "playerctl", "play-pause", NULL };
+static const char *mednextcmd[] = { "playerctl", "next", NULL };
+static const char *medprevcmd[] = { "playerctl", "previous", NULL };
+static const char *brighter[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *dimmer[]   = { "brightnessctl", "set", "10%-", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,           XF86XK_AudioRaiseVolume,    spawn,          {.v = volumeUp } },
 	{ 0,           XF86XK_AudioLowerVolume,    spawn,          {.v = volumeDown } },
 	{ 0,           XF86XK_AudioMute,           spawn,          {.v = mutevol } },
+        { 0,           XF86XK_AudioPlay,           spawn,          {.v = medplaypausecmd } },
+        { 0,           XF86XK_AudioNext,           spawn,          {.v = mednextcmd } },
+        { 0,           XF86XK_AudioPrev,           spawn,          {.v = medprevcmd } }, 
+        { 0,           XF86XK_MonBrightnessDown,   spawn,          {.v = dimmer } },
+        { 0,           XF86XK_MonBrightnessUp,     spawn,          {.v = brighter } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
