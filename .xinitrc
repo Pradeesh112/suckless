@@ -1,9 +1,8 @@
 
 ~/.fehbg &
-
 slstatus &
-picom &
 redshift &
+picom &
 exec dwm
 
 
