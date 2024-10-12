@@ -80,6 +80,7 @@ static const Key keys[] = {
         { 0,           XF86XK_AudioPrev,           spawn,          {.v = medprevcmd } }, 
         { 0,           XF86XK_MonBrightnessDown,   spawn,          {.v = dimmer } },
         { 0,           XF86XK_MonBrightnessUp,     spawn,          {.v = brighter } },
+        { 0,           XK_Print,                   spawn,          SHCMD("~/.scripts/screenshot.sh") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
