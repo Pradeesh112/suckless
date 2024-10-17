@@ -71,5 +71,5 @@ static const struct arg args[] = {
 	{ run_command,  " %s |",    "~/.scripts/brightness.sh" } ,
 	{ run_command,  " %s |",    "~/.scripts/battery.sh" } ,
 	{ datetime,     "  %s |",  "%d" } ,
-	{ datetime,     "  %s",    "%R" },
+	{ datetime,     "  %s",     "%R" },
 };
