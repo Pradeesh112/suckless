@@ -1,9 +1,0 @@
-boston-icon-theme 
-brave-bin 
-downgrade
-dtrx
-picom-git 
-preload
-spotify
-yay
-
