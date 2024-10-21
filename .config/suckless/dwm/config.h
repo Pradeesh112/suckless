@@ -82,9 +82,10 @@ static const Key keys[] = {
         { 0,           XF86XK_AudioNext,           spawn,          {.v = mednextcmd } },
         { 0,           XF86XK_AudioPrev,           spawn,          {.v = medprevcmd } },
 	{ 0,           XK_Print,                   spawn,          SHCMD("~/.scripts/screenshot.sh") },
-	{ MODKEY,      XK_b,                       spawn,          SHCMD("brave") },
+	{ MODKEY,                       XK_b,      spawn,          SHCMD("brave") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+        { MODKEY,                       XK_e,      exitdwm,        {0} },
 	{ MODKEY,                       XK_c,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -115,7 +116,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY,                       XK_e,      exitdwm,        {0} },
 };
 
 /* button definitions */
