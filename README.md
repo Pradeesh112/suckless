@@ -5,8 +5,8 @@
 https://forum.manjaro.org/t/how-to-make-linux-sound-great/146143
 
 # Patches used in dwm
-removeborder
-scratchpads
+#removeborder
+#scratchpads
 
 
 
