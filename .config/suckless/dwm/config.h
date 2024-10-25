@@ -2,6 +2,7 @@
 
 #include <X11/XF86keysym.h>
 #include "exitdwm.c"
+#define SESSION_FILE "/tmp/dwm-session"
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
