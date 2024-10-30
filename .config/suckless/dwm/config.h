@@ -28,12 +28,12 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm",  "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spcm",    "-g", "120x34","-e", "cmus", NULL };
-const char *spcmd3[] = {"st", "-n", "spnm",    "-g", "80x20", "-e", "nmtui",  NULL };
+const char *spcmd3[] = {"st", "-n", "spbc",    "-g", "80x20", "-e",  "bc",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spcmus",      spcmd2},
-        {"spnmtui",     spcmd3},
+        {"spbcal",      spcmd3},
 };
 
 /* tagging */
@@ -44,10 +44,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class  instance   title  tags mask   isfloating   monitor */
-	{  NULL,  "spterm",   NULL,  SPTAG(0),	    1,	       -1 },
-	{  NULL,  "spcm",     NULL,  SPTAG(1),	    1,	       -1 },
-        {  NULL,  "spnm",     NULL,  SPTAG(2),      1,         -1 },
+	/* class   instance   title  tags mask   isfloating   monitor */
+	{  NULL,   "spterm",   NULL,  SPTAG(0),	    1,	       -1 },
+	{  NULL,   "spcm",     NULL,  SPTAG(1),	    1,	       -1 },
+        {  NULL,   "spbc",     NULL,  SPTAG(2),     1,         -1 },
 };
 
 /* layout(s) */
