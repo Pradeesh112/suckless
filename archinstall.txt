@@ -1,5 +1,4 @@
-#Installation
-
+# Arch Linux Installation Guide
 
 1. Disks
 
@@ -7,7 +6,6 @@ Check if you have UEFI or BIOS
 
 * ls /sys/firmware/efi/efivars/
 * If there is a output - UEFI, if not - BIOS
-
 
 (i) Partition the disks
 
@@ -24,7 +22,6 @@ sda      931.5G
 * mkfs.ext4 /dev/sda2
 * mkfs.ext4 /dev/sda3
 
-
 (iii) Mount the partitions
 
 * mkdir -p /mnt/boot/efi
@@ -40,43 +37,35 @@ sda      8:0    0 931.5G  0 disk
 ├─sda2   8:2    0    30G  0 part /
 └─sda3   8:3    0   901G  0 part /home
 
-
 2. Install the base system
 
 * pacstrap /mnt base linux-lts linux-lts-headers linux-firmware base-devel grub efibootmgr vim networkmanager
-
 
 3. Fstab
 
 * genfstab -U /mnt >> /mnt/etc/fstab
 
-
 4. Chroot
 
 * arch-chroot /mnt
-
 
 5. Time
 
 * ln -sf /usr/share/zoneinfo/Asia/Calcutta /etc/localtime
 * hwclock --systohc
 
-
 6. Localization
 
 * edit /etc/locale.gen and uncomment en_US.UTF-8 UTF-8
 * locale-gen
 
-
 7. Hostname 
 
 * edit /etc/hostname and set your hostname
 
-
 8. Root password
 
 * passwd
-
 
 9. Create User 
 
@@ -84,35 +73,28 @@ sda      8:0    0 931.5G  0 disk
 * passwd pradeesh
 * EDITOR=vim visudo & uncomment %wheel ALL=(ALL) ALL
 
-
 10. Enable Services
 
 * systemctl enable NetworkManager
 
-
 11. Boot loader
-
 
 BIOS
 
 * grub-install /dev/sda
 * grub-mkconfig -o /boot/grub/grub.cfg
 
-
 UEFI
 
 * grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
 * grub-mkconfig -o /boot/grub/grub.cfg 
-
 
 12. Reboot
 
 * umount -a 
 * reboot
 
-
 # Post Installation
-
 
 1. Swap File
 
@@ -123,39 +105,29 @@ UEFI
 * echo '/swapfile none swap defaults 0 0' >> /etc/fstab
 * free -m 
 
-
 2. Install Display Server
 
 * xorg xorg-xinit 
 
-
 3. Video Drivers & Miscs
 
 * xf86-video-amdgpu amd-ucode mesa 
-
 
 4. Install Audio
 
 * pipewire pipewire-alsa pipewire-pulse wireplumber
 * systemctl --user --now enable pipewire pipewire-pulse wireplumber
 
-   Make Audio in Linux Great 
-
-* easyeffects gst-plugin-pipewire lsp-plugins zam-plugins-lv2 mda.lv2 calf yelp
-
-
 5. Install dwm
 
+* libx11 libxft libxinerama freetype2 (dependencies of dwm)
 * git clone git://git.suckless.org/dwm
 * git clone git://git.suckless.org/st
 * git clone git://git.suckless.org/dmenu
 * git clone git://git.suckless.org/slstatus
-* libx11 libxft libxinerama freetype2 fontconfig  (dependencies of dwm)
 * sudo make clean install
-
 
 6. Starting dwm
 
 * echo "exec dwm" > ~/.xinitrc
 * startx
-
