@@ -1,4 +1,5 @@
-![10-17-2024-141831](https://github.com/user-attachments/assets/93416b70-1780-4a44-a732-192f20c81d8c)
+![11-10-2024-175450](https://github.com/user-attachments/assets/5cc4c9b6-1a32-4633-b9da-54941d053e50)
+
 
 
 # How to Make Linux sound GREAT!
