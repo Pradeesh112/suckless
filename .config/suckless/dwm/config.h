@@ -45,7 +45,7 @@ static const Rule rules[] = {
 	{  NULL,              "spterm",   NULL,   SPTAG(0),	 1,	    -1 },
 	{  NULL,              "spcm",     NULL,   SPTAG(1),	 1,	    -1 },
         {  NULL,              "spbc",     NULL,   SPTAG(2),      1,         -1 },
-        { "BleachBit",         NULL,      NULL,   0,             1,         -1 },
+        { "Bleachbit",         NULL,      NULL,   0,             1,         -1 },
         { "transmission-gtk",  NULL,      NULL,   0,             1,         -1 },
         { "Lxappearance",      NULL,      NULL,   0,             1,         -1 },
         { "easyeffects",       NULL,      NULL,   0,             1,         -1 }, 
