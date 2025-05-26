@@ -27,9 +27,9 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm",  "-g", "120x34", NULL };
-const char *spcmd2[] = {"st", "-n", "spcm",    "-g", "120x34","-e", "cmus", NULL };
-const char *spcmd3[] = {"st", "-n", "spbc",    "-g", "80x20", "-e",  "bc",  NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd2[] = {"st", "-n", "spcm",   "-g", "120x34","-e", "cmus", NULL };
+const char *spcmd3[] = {"st", "-n", "spbc",   "-g", "80x20", "-e", "bc", "-lq",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -45,11 +45,13 @@ static const Rule rules[] = {
 	{  NULL,              "spterm",   NULL,   SPTAG(0),	 1,	    -1 },
 	{  NULL,              "spcm",     NULL,   SPTAG(1),	 1,	    -1 },
         {  NULL,              "spbc",     NULL,   SPTAG(2),      1,         -1 },
+        { "Brave-browser",     NULL,      NULL,   1 << 0,        0,         -1 },
+        { "Spotify",           NULL,      NULL,   1 << 2,        0,         -1 }, 
+        { "transmission-gtk",  NULL,      NULL,   1 << 8,        1,         -1 },
         { "Bleachbit",         NULL,      NULL,   0,             1,         -1 },
-        { "transmission-gtk",  NULL,      NULL,   0,             1,         -1 },
         { "Lxappearance",      NULL,      NULL,   0,             1,         -1 },
-        { "easyeffects",       NULL,      NULL,   0,             1,         -1 }, 
-       
+        { "easyeffects",       NULL,      NULL,   0,             1,         -1 },
+
 };
 
 /* layout(s) */
@@ -133,6 +135,7 @@ static const Key keys[] = {
         { MODKEY,            		XK_y,  	                         togglescratch,  {.ui = 0 } },
 	{ MODKEY,            		XK_u,	                         togglescratch,  {.ui = 1 } },
 	{ MODKEY,            		XK_x,	                         togglescratch,  {.ui = 2 } },
+        { MODKEY,                       XK_w,                            togglesticky,   {0} },
         { MODKEY|ShiftMask,             XK_q,                            quit,           {1} }, 
         TAGKEYS(                        XK_1,                                            0)
 	TAGKEYS(                        XK_2,                                            1)
