@@ -51,7 +51,7 @@ static const Rule rules[] = {
         { "Bleachbit",         NULL,      NULL,   0,             1,         -1 },
         { "Lxappearance",      NULL,      NULL,   0,             1,         -1 },
         { "easyeffects",       NULL,      NULL,   0,             1,         -1 },
-
+        { "ft",                NULL,      NULL,   0,             1,         -1 },
 };
 
 /* layout(s) */
@@ -89,9 +89,10 @@ static const char *dimmer[]        = { "brightnessctl", "set", "10%-", NULL };
 static const char *medpausecmd[]   = { "playerctl", "play-pause", NULL };
 static const char *mednextcmd[]    = { "playerctl", "next", NULL };
 static const char *medprevcmd[]    = { "playerctl", "previous", NULL };
-static const char *lockcmd[]       = { "slock", NULL };
+static const char *termrn[]        = { "st", "-e", "ranger", NULL };
+static const char *termnm[]        = { "st", "-c", "ft", "-e", "nmtui", NULL };
 static const char *termcmd[]       = { "st", NULL };
-
+static const char *lockcmd[]       = { "slock", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                              function        argument */
@@ -111,6 +112,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,                            spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,                       spawn,          {.v = termcmd } },
         { MODKEY|ShiftMask,             XK_l,                            spawn,          {.v = lockcmd } },
+        { MODKEY,                       XK_r,                            spawn,          {.v = termrn } },
+        { MODKEY|ShiftMask,             XK_n,                            spawn,          {.v = termnm } },
         { MODKEY,                       XK_e,                            exitdwm,        {0} },
 	{ MODKEY,                       XK_c,                            togglebar,      {0} },
 	{ MODKEY,                       XK_j,                            focusstack,     {.i = +1 } },
