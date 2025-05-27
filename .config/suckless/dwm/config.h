@@ -89,10 +89,8 @@ static const char *dimmer[]        = { "brightnessctl", "set", "10%-", NULL };
 static const char *medpausecmd[]   = { "playerctl", "play-pause", NULL };
 static const char *mednextcmd[]    = { "playerctl", "next", NULL };
 static const char *medprevcmd[]    = { "playerctl", "previous", NULL };
-static const char *termrn[]        = { "st", "-e", "ranger", NULL };
-static const char *termnm[]        = { "st", "-c", "ft", "-e", "nmtui", NULL };
-static const char *termcmd[]       = { "st", NULL };
 static const char *lockcmd[]       = { "slock", NULL };
+static const char *termcmd[]       = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key                              function        argument */
@@ -105,15 +103,15 @@ static const Key keys[] = {
         { 0,                            XF86XK_AudioNext,                spawn,          {.v = mednextcmd } },
         { 0,                            XF86XK_AudioPrev,                spawn,          {.v = medprevcmd } },
 	{ 0,                            XK_Print,                        spawn,          SHCMD("~/.scripts/screenshot.sh") },
-	{ MODKEY,                       XK_b,                            spawn,          SHCMD("brave") },
-        { MODKEY,                       XK_s,                            spawn,          SHCMD("spotify") },
         { MODKEY,                       XK_comma,                        spawn,          SHCMD("transmission-gtk") },
+        { MODKEY|ShiftMask,             XK_n,                            spawn,          SHCMD("st -c ft -e nmtui") },
+        { MODKEY,                       XK_r,                            spawn,          SHCMD("st -e ranger") },
         { MODKEY,                       XK_period,                       spawn,          SHCMD("bleachbit") },
+        { MODKEY,                       XK_s,                            spawn,          SHCMD("spotify") },
+	{ MODKEY,                       XK_b,                            spawn,          SHCMD("brave") },
 	{ MODKEY,                       XK_p,                            spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,                       spawn,          {.v = termcmd } },
         { MODKEY|ShiftMask,             XK_l,                            spawn,          {.v = lockcmd } },
-        { MODKEY,                       XK_r,                            spawn,          {.v = termrn } },
-        { MODKEY|ShiftMask,             XK_n,                            spawn,          {.v = termnm } },
         { MODKEY,                       XK_e,                            exitdwm,        {0} },
 	{ MODKEY,                       XK_c,                            togglebar,      {0} },
 	{ MODKEY,                       XK_j,                            focusstack,     {.i = +1 } },
