@@ -7,7 +7,7 @@
 https://forum.manjaro.org/t/how-to-make-linux-sound-great/146143
 
 # Patches used in dwm
-removeborder, exitmenu, scratchpads, restartsig, restoreafterrestart, pertag, alwayscenter, sticky
+removeborder, exitmenu, scratchpads, restartsig, restoreafterrestart, pertag, alwayscenter, sticky, taglayouts
 
 
 
